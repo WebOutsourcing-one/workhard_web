@@ -1,0 +1,137 @@
+{
+  "metadata": {
+    "title": "WorkHard — Multi-Trigger Window Visibility Control",
+    "description": "Reveal and hide working windows on demand with hotkey, hover, and toggle triggers. A precise desktop productivity tool — multi-monitor and high-DPI aware."
+  },
+  "header": {
+    "nav": {
+      "features": "Features",
+      "modes": "Trigger Modes",
+      "download": "Download"
+    },
+    "cta": "Free Download"
+  },
+  "languageSwitcher": {
+    "label": "Select language",
+    "ko": "한국어",
+    "en": "English"
+  },
+  "hero": {
+    "badge": "Windows 10 / 11 · v{version}",
+    "title1": "Visible only when you need it —",
+    "title2": "smart window visibility control",
+    "subtitle1": "Reveal and hide working windows with four trigger modes.",
+    "subtitle2": "Stay focused. Pull up references only when you need them.",
+    "cta1": "Get started — it's free",
+    "cta2": "Explore features",
+    "mockup": {
+      "activeMode": "Active mode",
+      "tracking": "Tracking",
+      "windowsCount": "3 windows",
+      "alpha": "Alpha transparency",
+      "alphaValue": "Hidden 0 · Visible 255"
+    }
+  },
+  "modes": {
+    "eyebrow": "Trigger Modes",
+    "title1": "Four modes that match",
+    "title2": "exactly how you work",
+    "subtitle": "Show it when you need it, vanish when you don't. The same window calls for different behavior moment to moment. WorkHard lets you combine four triggers freely.",
+    "items": [
+      {
+        "name": "Hotkey",
+        "badge": "Shortcut",
+        "desc": "The target window appears only while you hold the assigned shortcut. Release it, and it vanishes — never breaking your flow.",
+        "example": "Hold Ctrl + Space → Visible / Release → Hidden"
+      },
+      {
+        "name": "Hover",
+        "badge": "Mouse",
+        "desc": "The window appears the moment the cursor enters the area and disappears when it leaves. A natural transition — no keypress required.",
+        "example": "Cursor enters area → Visible / Leaves → Hidden"
+      },
+      {
+        "name": "Both",
+        "badge": "Combined",
+        "desc": "Visible only when both hotkey and hover are satisfied. Perfect when you need to prevent accidental exposure.",
+        "example": "Hold Ctrl while hovering the area → Visible"
+      },
+      {
+        "name": "Toggle",
+        "badge": "Toggle",
+        "desc": "Press the hotkey once to pin it open, again to dismiss. Ideal for references you want to keep around.",
+        "example": "Press Ctrl + Space once → Stays visible"
+      }
+    ]
+  },
+  "features": {
+    "eyebrow": "Features",
+    "title1": "Solid fundamentals,",
+    "title2": "built for focus",
+    "subtitle": "A small, lightweight tool — but rock-solid inside. Native WPF implementation that runs reliably in any environment.",
+    "items": [
+      {
+        "title": "Alpha transparency control",
+        "desc": "Smooth 0–255 alpha transitions without destroying the window. Hidden and revealed with zero flicker."
+      },
+      {
+        "title": "High-DPI precision",
+        "desc": "Physical and logical pixels are auto-corrected — selection areas match perfectly on 4K and multi-monitor setups."
+      },
+      {
+        "title": "Aspect-ratio enforcement",
+        "desc": "Lock to 16:9, 21:9, 4:3, or any custom ratio — based on the client area, not the outer frame."
+      },
+      {
+        "title": "Multi-window tracking",
+        "desc": "Register and control many windows at once. Hover and hotkey states sync through a single, consistent state machine."
+      },
+      {
+        "title": "Secure auto-update",
+        "desc": "Four-stage integrity check — host allowlist, size guard, stream cap, and SHA-256 hash verification — for safe updates."
+      },
+      {
+        "title": "Dark & light auto-switch",
+        "desc": "Detects your system theme automatically and switches Korean / English instantly."
+      }
+    ]
+  },
+  "download": {
+    "eyebrow": "Get Started",
+    "title1": "Download now and",
+    "title2": "focus on focus",
+    "subtitle": "Completely free. Runs on Windows 10 and above. The installer is delivered with signature and hash verification.",
+    "cta1": "Download for Windows",
+    "instructions": {
+      "toggle": "How to install",
+      "warning": "⚠ The installer isn't code-signed yet, so Windows SmartScreen or your antivirus may flag it. That's expected — just follow the steps below.",
+      "steps": [
+        "Click 'Download for Windows' above to fetch the installer.",
+        "If 'Windows protected your PC' appears, click 'More info' → 'Run anyway'.",
+        "If your antivirus blocks the file, allow or trust it, then try again.",
+        "Once the SHA-256 integrity check passes, installation begins automatically."
+      ]
+    },
+    "stats": {
+      "version": "Version",
+      "platform": "Platform",
+      "platformValue": "Windows 10+",
+      "size": "Size",
+      "sizeValue": "~15 MB",
+      "price": "Price",
+      "priceValue": "Free"
+    }
+  },
+  "footer": {
+    "description": "Working windows that surface only when you need them. Keep your flow — and your references — at the same time.",
+    "productTitle": "Product",
+    "infoTitle": "Info",
+    "platform": "Windows 10 / 11",
+    "languages": "한국어 · English",
+    "versionLabel": "v{version}",
+    "contactLabel": "Contact",
+    "contactEmail": "jjong015189@gmail.com",
+    "copyright": "© {year} WorkHard. All rights reserved.",
+    "tagline": "Made with focus, for focus."
+  }
+}

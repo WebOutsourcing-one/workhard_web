@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0b0d12;
+  --bg-soft: #11141b;
+  --fg: #e8ecf3;
+  --fg-dim: #9aa3b2;
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+}
+
+.gradient-text {
+  background: linear-gradient(120deg, #8aa6ff 0%, #b8caff 40%, #5b7dff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glow-ring {
+  box-shadow:
+    0 0 0 1px rgba(138, 166, 255, 0.18),
+    0 30px 80px -20px rgba(58, 91, 245, 0.45);
+}
+
+.dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
