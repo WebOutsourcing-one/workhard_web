@@ -12,41 +12,38 @@ export default function LanguageSwitcher() {
   const pathname = usePathname();
   const [isPending, startTransition] = useTransition();
 
-  function handleChange(next: string) {
+  function switchTo(next: string) {
+    if (next === locale) return;
     startTransition(() => {
       router.replace(pathname, { locale: next });
     });
   }
 
   return (
-    <label className="relative inline-flex">
-      <span className="sr-only">{t("label")}</span>
-      <select
-        value={locale}
-        onChange={(e) => handleChange(e.target.value)}
-        disabled={isPending}
-        className="appearance-none rounded-full border border-white/10 bg-white/[0.03] py-1.5 pl-3 pr-7 text-xs text-[var(--fg-dim)] transition-colors hover:border-white/20 hover:text-white focus:outline-none focus:ring-2 focus:ring-brand-400/40 disabled:opacity-50"
-      >
-        {routing.locales.map((loc) => (
-          <option key={loc} value={loc} className="bg-[#0b0d12] text-white">
+    <div
+      role="group"
+      aria-label={t("label")}
+      className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] p-0.5 text-xs"
+    >
+      {routing.locales.map((loc) => {
+        const isActive = loc === locale;
+        return (
+          <button
+            key={loc}
+            type="button"
+            onClick={() => switchTo(loc)}
+            disabled={isPending}
+            aria-pressed={isActive}
+            className={`rounded-full px-2.5 py-1 font-medium transition-colors disabled:opacity-60 ${
+              isActive
+                ? "bg-white text-black"
+                : "text-[var(--fg-dim)] hover:text-white"
+            }`}
+          >
             {t(loc as "ko" | "en")}
-          </option>
-        ))}
-      </select>
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        aria-hidden="true"
-        className="pointer-events-none absolute right-2 top-1/2 h-3 w-3 -translate-y-1/2 text-[var(--fg-dim)]"
-      >
-        <path
-          d="M6 9l6 6 6-6"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </label>
+          </button>
+        );
+      })}
+    </div>
   );
 }

@@ -3,8 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 
-const DOWNLOAD_URL =
-  "https://ryvizobdmafpvqriypde.supabase.co/functions/v1/download-installer?version=latest";
+const DOWNLOAD_URL = `${process.env.NEXT_PUBLIC_SUPABASE_FUNCTIONS_URL ?? ""}/download-installer?version=latest`;
 
 export default function DownloadCTAs() {
   const t = useTranslations("download");

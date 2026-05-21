@@ -5,13 +5,14 @@ import { FeatureIcon } from "@/components/FeatureIcon";
 import DownloadCTAs from "@/components/DownloadCTAs";
 
 const FALLBACK_VERSION = "1.0.11";
+const FUNCTIONS_BASE = process.env.NEXT_PUBLIC_SUPABASE_FUNCTIONS_URL;
 
 async function getLatestVersion(): Promise<string> {
+  if (!FUNCTIONS_BASE) return FALLBACK_VERSION;
   try {
-    const res = await fetch(
-      "https://ryvizobdmafpvqriypde.supabase.co/functions/v1/latest-version",
-      { next: { revalidate: 3600 } },
-    );
+    const res = await fetch(`${FUNCTIONS_BASE}/latest-version`, {
+      next: { revalidate: 3600 },
+    });
     if (!res.ok) return FALLBACK_VERSION;
     const data = (await res.json()) as { version?: string };
     return data.version ?? FALLBACK_VERSION;
@@ -60,10 +61,10 @@ export default async function Home({
             <div className="mx-auto max-w-3xl text-center">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-[var(--fg-dim)]">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                {t("hero.badge", { version })}
+                {t("hero.badge")}
               </span>
 
-              <h1 className="mt-6 text-balance text-5xl font-bold leading-[1.05] tracking-tight md:text-6xl">
+              <h1 className="mt-6 text-balance text-5xl font-bold leading-[1.05] md:text-6xl">
                 {t("hero.title1")}
                 <br />
                 <span className="gradient-text">{t("hero.title2")}</span>
@@ -112,7 +113,9 @@ export default async function Home({
                       <div className="mb-2 text-xs uppercase tracking-wider text-brand-300">
                         {t("hero.mockup.activeMode")}
                       </div>
-                      <div className="text-2xl font-semibold">Hotkey</div>
+                      <div className="text-2xl font-semibold">
+                        {t("hero.mockup.modeName")}
+                      </div>
                       <div className="mt-3 inline-flex items-center gap-1 rounded-md border border-white/10 bg-white/[0.03] px-2 py-1 text-xs">
                         <kbd className="font-mono">Ctrl</kbd>
                         <span className="text-[var(--fg-dim)]">+</span>
@@ -135,16 +138,19 @@ export default async function Home({
                   </div>
 
                   <div className="mt-4 rounded-lg border border-white/5 bg-white/[0.02] p-5">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="text-xs uppercase tracking-wider text-[var(--fg-dim)]">
-                          {t("hero.mockup.alpha")}
-                        </div>
-                        <div className="mt-1 text-lg font-medium">
-                          {t("hero.mockup.alphaValue")}
-                        </div>
+                    <div className="text-xs uppercase tracking-wider text-[var(--fg-dim)]">
+                      {t("hero.mockup.alpha")}
+                    </div>
+                    <div className="relative mt-3 overflow-hidden rounded-md border border-white/10">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-500/40 to-brand-400" />
+                      <div className="relative flex items-center justify-between px-4 py-3 text-sm font-medium">
+                        <span className="text-white/40">
+                          {t("hero.mockup.alphaHidden")}
+                        </span>
+                        <span className="text-white">
+                          {t("hero.mockup.alphaVisible")}
+                        </span>
                       </div>
-                      <div className="h-10 w-32 rounded-md bg-gradient-to-r from-transparent via-brand-500/50 to-brand-400" />
                     </div>
                   </div>
                 </div>
@@ -161,7 +167,7 @@ export default async function Home({
                 <span className="text-xs font-medium uppercase tracking-widest text-brand-300">
                   {t("modes.eyebrow")}
                 </span>
-                <h2 className="mt-3 text-4xl font-bold tracking-tight md:text-5xl">
+                <h2 className="mt-3 text-4xl font-bold md:text-5xl">
                   {t("modes.title1")}
                   <br />
                   <span className="gradient-text">{t("modes.title2")}</span>
@@ -207,7 +213,7 @@ export default async function Home({
               <span className="text-xs font-medium uppercase tracking-widest text-brand-300">
                 {t("features.eyebrow")}
               </span>
-              <h2 className="mt-3 text-4xl font-bold tracking-tight md:text-5xl">
+              <h2 className="mt-3 text-4xl font-bold md:text-5xl">
                 {t("features.title1")}
                 <br />
                 <span className="gradient-text">{t("features.title2")}</span>
@@ -245,7 +251,7 @@ export default async function Home({
                 <span className="text-xs font-medium uppercase tracking-widest text-brand-300">
                   {t("download.eyebrow")}
                 </span>
-                <h2 className="mt-3 text-4xl font-bold tracking-tight md:text-5xl">
+                <h2 className="mt-3 text-4xl font-bold md:text-5xl">
                   {t("download.title1")}
                   <br />
                   <span className="gradient-text">{t("download.title2")}</span>
