@@ -39,7 +39,7 @@ export default async function Header() {
           <LanguageSwitcher />
           <a
             href="#download"
-            className="hidden items-center gap-1.5 rounded-full bg-white px-4 py-2 text-sm font-medium text-black transition-transform hover:scale-[1.02] sm:inline-flex"
+            className="hidden min-w-[100px] items-center justify-center gap-1.5 rounded-full bg-white px-4 py-2 text-sm font-medium text-black transition-transform hover:scale-[1.02] sm:inline-flex"
           >
             {t("cta")}
           </a>
