@@ -33,6 +33,11 @@ type FeatureItem = {
   desc: string;
 };
 
+type DemoStep = {
+  title: string;
+  desc: string;
+};
+
 export default async function Home({
   params,
 }: {
@@ -46,6 +51,7 @@ export default async function Home({
 
   const modes = t.raw("modes.items") as ModeItem[];
   const features = t.raw("features.items") as FeatureItem[];
+  const demoSteps = t.raw("demo.steps") as DemoStep[];
 
   return (
     <>
@@ -156,6 +162,54 @@ export default async function Home({
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Section — Demo */}
+        <section id="demo" className="border-t border-white/5">
+          <div className="mx-auto max-w-6xl px-6 py-24">
+            <div className="mx-auto max-w-2xl text-center">
+              <span className="text-xs font-medium uppercase tracking-widest text-brand-300">
+                {t("demo.eyebrow")}
+              </span>
+              <h2 className="mt-3 text-4xl font-bold md:text-5xl">
+                {t("demo.title1")}
+                <br />
+                <span className="gradient-text">{t("demo.title2")}</span>
+              </h2>
+              <p className="mt-5 text-[var(--fg-dim)]">{t("demo.subtitle")}</p>
+            </div>
+
+            {/* Video */}
+            <div className="glow-ring mx-auto mt-10 max-w-5xl rounded-2xl border border-white/10 bg-gradient-to-b from-[#0f1320] to-[#0a0c14] p-1.5">
+              <video
+                className="w-full rounded-xl"
+                src="/workhard.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+              />
+            </div>
+
+            {/* Steps */}
+            <ol className="mx-auto mt-12 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {demoSteps.map((s, idx) => (
+                <li
+                  key={s.title}
+                  className="rounded-2xl border border-white/5 bg-white/[0.02] p-5"
+                >
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-brand-500/30 to-brand-700/10 text-sm font-bold text-brand-200">
+                    {idx + 1}
+                  </div>
+                  <h3 className="mt-4 text-base font-semibold">{s.title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-[var(--fg-dim)]">
+                    {s.desc}
+                  </p>
+                </li>
+              ))}
+            </ol>
           </div>
         </section>
 

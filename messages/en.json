@@ -5,6 +5,7 @@
   },
   "header": {
     "nav": {
+      "demo": "Quick start",
       "features": "Features",
       "modes": "Modes",
       "download": "Download"
@@ -33,6 +34,30 @@
       "alphaHidden": "Hidden",
       "alphaVisible": "Visible"
     }
+  },
+  "demo": {
+    "eyebrow": "How it works",
+    "title1": "New here? No problem —",
+    "title2": "setup in 30 seconds",
+    "subtitle": "No complicated setup. Follow the guide and your windows will show and hide on their own.",
+    "steps": [
+      {
+        "title": "Pick a window",
+        "desc": "Choose the window you want to show or hide. You can pick more than one at the same time."
+      },
+      {
+        "title": "When should it show?",
+        "desc": "Pick when the window appears — hotkey, hover, combined, or toggle."
+      },
+      {
+        "title": "Fine-tune the look",
+        "desc": "Lock the aspect ratio, keep it on top, and set the hidden and visible transparency just how you like."
+      },
+      {
+        "title": "Start",
+        "desc": "You're all set! Windows show or hide on their own based on your rules."
+      }
+    ]
   },
   "modes": {
     "eyebrow": "Trigger Modes",
