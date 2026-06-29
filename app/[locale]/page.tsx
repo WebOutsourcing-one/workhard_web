@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { FeatureIcon } from "@/components/FeatureIcon";
 import DownloadCTAs from "@/components/DownloadCTAs";
+import DemoVideo from "@/components/DemoVideo";
 
 const FALLBACK_VERSION = "1.0.11";
 const FUNCTIONS_BASE = process.env.NEXT_PUBLIC_SUPABASE_FUNCTIONS_URL;
@@ -182,15 +183,7 @@ export default async function Home({
 
             {/* Video */}
             <div className="glow-ring mx-auto mt-10 max-w-5xl rounded-2xl border border-white/10 bg-gradient-to-b from-[#0f1320] to-[#0a0c14] p-1.5">
-              <video
-                className="w-full rounded-xl"
-                src="/workhard.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="metadata"
-              />
+              <DemoVideo src="/workhard.mp4" />
             </div>
 
             {/* Steps */}
